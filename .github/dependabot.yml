@@ -17,44 +17,42 @@ updates:
       - dependency-type: 'all'
     open-pull-requests-limit: 99
     groups:
-      babel-version-updates:
+      angular-version-updates:
         applies-to: version-updates
         patterns:
-          - '@babel*'
+          - '@angular*'
         update-types:
           - 'minor'
           - 'patch'
-      babel-security-updates:
+      angular-security-updates:
         applies-to: security-updates
         patterns:
-          - '@babel*'
+          - '@angular*'
         update-types:
           - 'patch'
           - 'minor'
-      react-version-updates:
+      development-version-updates:
         applies-to: version-updates
-        patterns:
-          - '*react*'
+        dependency-type: development
         update-types:
-          - 'minor'
           - 'patch'
-      react-security-updates:
+          - 'minor'
+      development-security-updates:
         applies-to: security-updates
-        patterns:
-          - '*react*'
+        dependency-type: development
         update-types:
           - 'patch'
           - 'minor'
     ignore:
+      - dependency-name: '@angular*'
+        update-types: ['version-update:semver-major']
       - dependency-name: '@types/node'
         update-types: ['version-update:semver-major']
-      - dependency-name: 'eslint'
+      - dependency-name: 'cypress'
         update-types: ['version-update:semver-major']
-      - dependency-name: 'eslint-config-next'
-        update-types: ['version-update:semver-major']
-      - dependency-name: 'next'
-        update-types: ['version-update:semver-major']
-      - dependency-name: '*react*'
+      - dependency-name: '*eslint*'
         update-types: ['version-update:semver-major']
       - dependency-name: 'typescript'
-        update-types: ['version-update:semver-major']
+        update-types: ['version-update:semver-major', 'version-update:semver-minor']
+      - dependency-name: 'zone.js'
+        update-types: ['version-update:semver-major', 'version-update:semver-minor']
