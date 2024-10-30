@@ -8,26 +8,28 @@ updates:
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
-      interval: 'daily'
+      interval: 'weekly'
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
-      interval: 'daily'
+      interval: 'weekly'
     allow:
       - dependency-type: 'all'
     open-pull-requests-limit: 99
     groups:
-      angular-version-updates:
+      next-version-updates:
         applies-to: version-updates
         patterns:
-          - '@angular*'
+          - 'next'
+          - '*react*'
         update-types:
           - 'minor'
           - 'patch'
-      angular-security-updates:
+      next-security-updates:
         applies-to: security-updates
         patterns:
-          - '@angular*'
+          - 'next'
+          - '*react*'
         update-types:
           - 'patch'
           - 'minor'
@@ -56,15 +58,15 @@ updates:
           - 'patch'
           - 'minor'
     ignore:
-      - dependency-name: '@angular*'
-        update-types: ['version-update:semver-major']
       - dependency-name: '@types/node'
         update-types: ['version-update:semver-major']
       - dependency-name: 'cypress'
         update-types: ['version-update:semver-major']
-      - dependency-name: '*eslint*'
+      - dependency-name: 'eslint'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'next'
+        update-types: ['version-update:semver-major']
+       - dependency-name: '*react*'
         update-types: ['version-update:semver-major']
       - dependency-name: 'typescript'
-        update-types: ['version-update:semver-major', 'version-update:semver-minor']
-      - dependency-name: 'zone.js'
-        update-types: ['version-update:semver-major', 'version-update:semver-minor']
+        update-types: ['version-update:semver-major']
